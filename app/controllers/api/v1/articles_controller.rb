@@ -6,7 +6,7 @@ module Api
     class ArticlesController < ApplicationController
       include AuthenticationConcern
       before_action :authorize_request, except: %i[index show]
-      alias_method :current_user, :authorize_request
+      alias current_user authorize_request
       load_and_authorize_resource
       def index
         articles = Article.order('created_at DESC')

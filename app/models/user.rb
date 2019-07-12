@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :articles, foreign_key: 'author_id'
   validates :name, presence: true, format: { with: /[A-Za-z]/ }
 
-  scope :admin?, -> { self.admin }
+  scope :admin?, -> { admin }
 
   def authentication_update
     self.last_sign_in_at = Time.now
